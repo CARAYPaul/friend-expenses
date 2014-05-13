@@ -15,6 +15,7 @@
 
 using namespace std;
 
+#pragma GCC diagnostic ignored "-Wwrite-strings"
 int state = 0;
 string newdata = "Empty";
 char *argvRead[2];
@@ -23,6 +24,8 @@ char *argvError[1];
 char *argvErrorNoFile[2];
 char *argvErrorHelpAsked[1];
 char *argvErrorPhoneOnly[1];
+
+extern std::streambuf *sbuf;
 
 Arg ReadArgTest;
 Arg WriteArgTest;
@@ -91,4 +94,6 @@ TEST(Arg, isErrorPhoneOnlyOk)//Test avec 2 arguments mais mauvais syntaxe
 	argvErrorPhoneOnly[1] = "--phone";
 	ErrorPhoneOnly.readArg(2, argvErrorPhoneOnly, &state, &newdata);
 	EXPECT_EQ(ERROR, state);
+	// When done redirect cout to its old self
+	std::cout.rdbuf(sbuf);
 }

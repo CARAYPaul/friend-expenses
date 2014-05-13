@@ -67,7 +67,7 @@ void Arg::readArg(int nbrArg, char **myArg, int *state, string *newdata)//Gestio
 				  }
 				  else
 				  {
-					  cout << "\nError Arg. Type" << endl;
+					  cout << "\nInvalid argument." << endl;
 					  cout << "Use \"./friend-expenses --help\" for help" << endl;
 				  }
 			  }
@@ -89,7 +89,7 @@ void Arg::readArg(int nbrArg, char **myArg, int *state, string *newdata)//Gestio
 	  			  }
 	  			  else
 	  			  {
-	  				  cout << "\nError Arg" << endl;
+	  				  cout << "\nInvalid argument." << endl;
 	  				  cout << "Use \"./friend-expenses --help\" for help" << endl;
 	  			  }
 			  }
@@ -117,7 +117,7 @@ void Arg::readArg(int nbrArg, char **myArg, int *state, string *newdata)//Gestio
 		  }
 		  else
 		  {
-			  cout<<"\nError Arg"<< endl;
+			  cout<<"\nInvalid argument."<< endl;
 			  cout << "Use \"./friend-expenses --help\" for help" << endl;
 		  }
 	    break;
