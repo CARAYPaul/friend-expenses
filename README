@@ -2,8 +2,7 @@ Friend Expenses
 
 Il s'agit d'une application capable de gérer les dépenses d'un ou plusieurs groupes.
 
-Elle affichera alors les montants dûs en fonctions des dépenses. Les données sont lues à partir d'un fichier
-au format CSV.
+Elle affichera alors les montants dûs en fonctions des dépenses. Les données sont lues à partir d'un fichier au format CSV.
 
 Pour afficher l'aide :
 ./friend-expenses --help
