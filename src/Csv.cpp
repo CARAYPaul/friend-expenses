@@ -78,7 +78,7 @@ void Csv::readCSV()
 				person.push_back(item);
 
 			}
-			Person *aPerson = new Person;
+			Person *aPerson;
 			if (person[4] == "Person") {
 				aPerson = new Person;
 				aPerson->setName(person[0]);
@@ -144,7 +144,23 @@ void Csv::createGroup(vector<Group>& Groups)
 		nbDonor = 0;
 		Groups.push_back(aGroup);
 	}
-
+	//iterate over persons to check for multiple expenses
+	//two persons are considerated as the same when the name and the phone # is the same
+	for(vector<Group>::iterator it = Groups.begin(); it != Groups.end(); ++it)
+	{
+		for (size_t i=0; i < it->size(); ++i)
+		{
+			for(size_t j=0; j < it->size(); ++j)
+			{
+				if(i!=j && (*it)[i]->getName() == (*it)[j]->getName() && (*it)[i]->getPhoneNumber() == (*it)[j]->getPhoneNumber() )
+				{
+					(*it)[i]->setExpenses((*it)[i]->getExpenses() + (*it)[j]->getExpenses());
+					//we found two persons. Now remove the second one from the vector
+					it->erase(it->begin()+j);
+				}
+			}
+		}
+	}
 }
 
 void Csv::setName(const string& iNameFile)
