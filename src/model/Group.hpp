@@ -12,9 +12,9 @@
 #include <vector>
 #include <string>
 
-
-
-	class Group : public vector<Person*> {
+namespace model
+{
+	class Group : public vector<model::Person*> {
 	public:
 		Group();
 		Group(const string groupName, int nbPers);
@@ -30,5 +30,5 @@
 		string _groupName;
 		int _nbPersGroup;
 	};
-
+}
 #endif /* GROUP_HPP_ */

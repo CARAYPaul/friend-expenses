@@ -9,6 +9,7 @@
 #include "Donor.hpp"
 
 using namespace std;
+using namespace model;
 
 Group::Group()
 {

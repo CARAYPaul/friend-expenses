@@ -25,7 +25,6 @@
 using namespace std;
 
 namespace model{
-
 	class Csv
 	{
 	public:
@@ -41,7 +40,6 @@ namespace model{
 		void closeCsv();
 
 	private :
-
 		string _nameFile;
 		fstream _myFile;
 		vector<Person*> _vPerson;

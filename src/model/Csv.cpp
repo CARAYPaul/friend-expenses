@@ -10,7 +10,6 @@
 using namespace std;
 using namespace model;
 
-
 	Csv::Csv() : _nbPersPerGroup (0)
 	{
 	}

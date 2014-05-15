@@ -9,10 +9,12 @@
 #define PERSON_HPP_
 
 #include <string>
-class Group;
 using namespace std;
 
-
+namespace model
+{
+//Forward declaration
+class Group;
 	class Person
 	{
 	public:
@@ -54,5 +56,5 @@ using namespace std;
 		Group *_pGroup;
 
 	};
-
+}
 #endif /* PERSON_HPP_ */
