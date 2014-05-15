@@ -16,10 +16,10 @@
 #include <limits>
 #include <vector>
 #include <stdlib.h>
-#include "Group.hpp"
-#include "Person.hpp"
-#include "Donor.hpp"
-#include "Csv.hpp"
+#include "../model/Group.hpp"
+#include "../model/Person.hpp"
+#include "../model/Donor.hpp"
+#include "../model/Csv.hpp"
 
 #define COMMA ","
 
