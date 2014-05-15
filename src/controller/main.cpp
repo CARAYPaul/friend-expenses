@@ -42,6 +42,8 @@
 
 #define NB_MAX_COLOR 7
 using namespace std;
+using namespace model;
+using namespace view;
 
 int main(int argc, char **argv)
 {

@@ -8,6 +8,8 @@
 #include "Group.hpp"
 #include "Donor.hpp"
 
+using namespace std;
+
 Group::Group()
 {
 	_nbPersGroup = 0;

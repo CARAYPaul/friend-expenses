@@ -23,16 +23,20 @@
 
 #define COMMA ","
 
-enum STATE {ERROR = 1, WRITE, READ};
-class Arg
+namespace view
 {
 
-public:
-	Arg();
-	virtual ~Arg();
+	enum STATE {ERROR = 1, WRITE, READ};
+	class Arg
+	{
 
-	void readArg(int nbrArg, char **myArg, int *state, string *newdata);
+	public:
+		Arg();
+		virtual ~Arg();
 
-};
+		void readArg(int nbrArg, char **myArg, int *state, string *newdata);
+
+	};
+}
 
 #endif /* ARG_HPP_ */

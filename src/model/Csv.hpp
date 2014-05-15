@@ -24,27 +24,30 @@
 
 using namespace std;
 
-class Csv
-{
-public:
-	Csv();
-	virtual ~Csv();
+namespace model{
 
-	void setName(const string& iNameFile);
-	void openCSV(string myFileName);
-	void readCSV();
-	void writeCSV(string person);
-	void createGroup (vector <Group>& groups);
-	inline bool checkFile(string myFileName);
-	void closeCsv();
+	class Csv
+	{
+	public:
+		Csv();
+		virtual ~Csv();
 
-private :
+		void setName(const string& iNameFile);
+		void openCSV(string myFileName);
+		void readCSV();
+		void writeCSV(string person);
+		void createGroup (vector <Group>& groups);
+		inline bool checkFile(string myFileName);
+		void closeCsv();
 
-	string _nameFile;
-	fstream _myFile;
-	vector<Person*> _vPerson;
-	vector<string>  _list_group;
-	int _nbPersPerGroup;
-};
+	private :
+
+		string _nameFile;
+		fstream _myFile;
+		vector<Person*> _vPerson;
+		vector<string>  _list_group;
+		int _nbPersPerGroup;
+	};
+}
 
 #endif /* CSV_HPP_ */

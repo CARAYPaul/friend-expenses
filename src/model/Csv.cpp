@@ -8,163 +8,164 @@
 #include "Csv.hpp"
 
 using namespace std;
+using namespace model;
 
-Csv::Csv() : _nbPersPerGroup (0)
-{
-}
 
-Csv::~Csv()
-{
-	_myFile.close();
-}
+	Csv::Csv() : _nbPersPerGroup (0)
+	{
+	}
 
-bool Csv::checkFile(string myFileName)
-{
-	_myFile.open(myFileName.c_str(), ios::in);
-	if(_myFile)
+	Csv::~Csv()
 	{
 		_myFile.close();
-		return true;
 	}
-	else
-		return false;
-}
 
-void Csv::openCSV(string myFileName)
-{
-	cout << "\nInput data file : " << myFileName << endl;
-	if (checkFile(myFileName))
+	bool Csv::checkFile(string myFileName)
 	{
-		_myFile.open(myFileName.c_str(), ios::in | ios::out | ios::app);
-	}
-	else
-	{
-		cout << "Exception caught while opening your file" << endl;
-		cout << "Please check file name or syntax." << endl;
-		cout << "Use \"./friend-expenses --help\" for help" << endl;
-		exit(1);
-	}
-}
-void Csv::closeCsv()
-{
-	_myFile.close();
-}
-void Csv::writeCSV(string person)
-{
-	_myFile << person;
-	_myFile.seekp(0); // reposition ourselves at the beginning
-}
-
-void Csv::readCSV()
-{
-	bool group_status;
-	int lineCounter(0);
-	string currentLine;
-	string item;
-
-	while (1)
-	{
-		vector<string> person;
-
-		getline(_myFile, currentLine);
-
-		if (lineCounter != 0)
+		_myFile.open(myFileName.c_str(), ios::in);
+		if(_myFile)
 		{
-			if (_myFile.eof())
-				break;
-			stringstream ss(currentLine.c_str());
+			_myFile.close();
+			return true;
+		}
+		else
+			return false;
+	}
 
-			while (std::getline(ss, item, ',')) {
-				person.push_back(item);
+	void Csv::openCSV(string myFileName)
+	{
+		cout << "\nInput data file : " << myFileName << endl;
+		if (checkFile(myFileName))
+		{
+			_myFile.open(myFileName.c_str(), ios::in | ios::out | ios::app);
+		}
+		else
+		{
+			cout << "Exception caught while opening your file" << endl;
+			cout << "Please check file name or syntax." << endl;
+			cout << "Use \"./friend-expenses --help\" for help" << endl;
+			exit(1);
+		}
+	}
+	void Csv::closeCsv()
+	{
+		_myFile.close();
+	}
+	void Csv::writeCSV(string person)
+	{
+		_myFile << person;
+		_myFile.seekp(0); // reposition ourselves at the beginning
+	}
 
-			}
-			Person *aPerson;
-			if (person[4] == "Person") {
-				aPerson = new Person;
-				aPerson->setName(person[0]);
-				aPerson->setPhoneNumber(person[1]);
-				aPerson->setExpenses(atof(person[2].c_str()));
-				aPerson->setGroupName(person[3]);
-				aPerson->setType();
-			}
-			if (person[4] == "Donor")
+	void Csv::readCSV()
+	{
+		bool group_status;
+		int lineCounter(0);
+		string currentLine;
+		string item;
+
+		while (1)
+		{
+			vector<string> person;
+
+			getline(_myFile, currentLine);
+
+			if (lineCounter != 0)
 			{
-				aPerson = new Donor;
-				aPerson->setName(person[0]);
-				aPerson->setPhoneNumber(person[1]);
-				aPerson->setExpenses(atof(person[2].c_str()));
-				aPerson->setGroupName(person[3]);
-				aPerson->setType();
-			}
-			if (_list_group.size() == 0)
-				_list_group.push_back(person[3]);
-			for (unsigned int i = 0; i < _list_group.size(); i++)
-			{
-				if (_list_group[i] == person[3]) //group existe deja
-				{
-					group_status = true;
+				if (_myFile.eof())
 					break;
-				} else
-					group_status = false;
-			}
-			if (!group_status)
-			{
-				_list_group.push_back(person[3]); // contient le nom des groupes
-			}
-			_vPerson.push_back(aPerson); // contient toutes les personnes
-		}
-		lineCounter++;
-	}
-}
+				stringstream ss(currentLine.c_str());
 
+				while (std::getline(ss, item, ',')) {
+					person.push_back(item);
 
-void Csv::createGroup(vector<Group>& Groups)
-{
-	int nbDonor = 0;
-
-	//trier les donnees lues dans le csv
-	for (unsigned int i = 0; i < _list_group.size(); i++)
-	{
-		Group aGroup;
-		aGroup.setGroupName(_list_group[i]);
-
-		for (unsigned int j = 0; j < _vPerson.size(); j++) {
-			if (_list_group[i] == _vPerson[j]->getGroupName()) {
-				//personne par groupe
-				_nbPersPerGroup++;
-				aGroup.push_back(_vPerson[j]);
-				if (_vPerson[j]->getType() == "Donor") {
-					nbDonor++;
 				}
-			}
-		}
-		//remplir vecteur de group
-		aGroup.setNbPersGroup(_nbPersPerGroup - nbDonor);
-		_nbPersPerGroup = 0;
-		nbDonor = 0;
-		Groups.push_back(aGroup);
-	}
-	//iterate over persons to check for multiple expenses
-	//two persons are considerated as the same when the name and the phone # is the same
-	for(vector<Group>::iterator it = Groups.begin(); it != Groups.end(); ++it)
-	{
-		for (size_t i=0; i < it->size(); ++i)
-		{
-			for(size_t j=0; j < it->size(); ++j)
-			{
-				if(i!=j && (*it)[i]->getName() == (*it)[j]->getName() && (*it)[i]->getPhoneNumber() == (*it)[j]->getPhoneNumber() )
+				Person *aPerson;
+				if (person[4] == "Person") {
+					aPerson = new Person;
+					aPerson->setName(person[0]);
+					aPerson->setPhoneNumber(person[1]);
+					aPerson->setExpenses(atof(person[2].c_str()));
+					aPerson->setGroupName(person[3]);
+					aPerson->setType();
+				}
+				if (person[4] == "Donor")
 				{
-					(*it)[i]->setExpenses((*it)[i]->getExpenses() + (*it)[j]->getExpenses());
-					//we found two persons. Now remove the second one from the vector
-					it->erase(it->begin()+j);
+					aPerson = new Donor;
+					aPerson->setName(person[0]);
+					aPerson->setPhoneNumber(person[1]);
+					aPerson->setExpenses(atof(person[2].c_str()));
+					aPerson->setGroupName(person[3]);
+					aPerson->setType();
+				}
+				if (_list_group.size() == 0)
+					_list_group.push_back(person[3]);
+				for (unsigned int i = 0; i < _list_group.size(); i++)
+				{
+					if (_list_group[i] == person[3]) //group existe deja
+					{
+						group_status = true;
+						break;
+					} else
+						group_status = false;
+				}
+				if (!group_status)
+				{
+					_list_group.push_back(person[3]); // contient le nom des groupes
+				}
+				_vPerson.push_back(aPerson); // contient toutes les personnes
+			}
+			lineCounter++;
+		}
+	}
+
+
+	void Csv::createGroup(vector<Group>& Groups)
+	{
+		int nbDonor = 0;
+
+		//trier les donnees lues dans le csv
+		for (unsigned int i = 0; i < _list_group.size(); i++)
+		{
+			Group aGroup;
+			aGroup.setGroupName(_list_group[i]);
+
+			for (unsigned int j = 0; j < _vPerson.size(); j++) {
+				if (_list_group[i] == _vPerson[j]->getGroupName()) {
+					//personne par groupe
+					_nbPersPerGroup++;
+					aGroup.push_back(_vPerson[j]);
+					if (_vPerson[j]->getType() == "Donor") {
+						nbDonor++;
+					}
+				}
+			}
+			//remplir vecteur de group
+			aGroup.setNbPersGroup(_nbPersPerGroup - nbDonor);
+			_nbPersPerGroup = 0;
+			nbDonor = 0;
+			Groups.push_back(aGroup);
+		}
+		//iterate over persons to check for multiple expenses
+		//two persons are considerated as the same when the name and the phone # is the same
+		for(vector<Group>::iterator it = Groups.begin(); it != Groups.end(); ++it)
+		{
+			for (size_t i=0; i < it->size(); ++i)
+			{
+				for(size_t j=0; j < it->size(); ++j)
+				{
+					if(i!=j && (*it)[i]->getName() == (*it)[j]->getName() && (*it)[i]->getPhoneNumber() == (*it)[j]->getPhoneNumber() )
+					{
+						(*it)[i]->setExpenses((*it)[i]->getExpenses() + (*it)[j]->getExpenses());
+						//we found two persons. Now remove the second one from the vector
+						it->erase(it->begin()+j);
+					}
 				}
 			}
 		}
 	}
-}
 
-void Csv::setName(const string& iNameFile)
-{
-	_nameFile = iNameFile;
-}
-
+	void Csv::setName(const string& iNameFile)
+	{
+		_nameFile = iNameFile;
+	}

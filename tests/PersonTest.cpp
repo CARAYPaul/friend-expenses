@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include "../src/Person.hpp"
+#include "../src/model/Person.hpp"
 
 using namespace std;
 

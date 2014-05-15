@@ -12,46 +12,47 @@
 class Group;
 using namespace std;
 
-class Person
-{
-public:
-    Person();
-    Person(const string name, const string phone, const float expenses, const string gName);
-    virtual ~Person();
 
-    const string& getName() const;
-    void setName(const string& name);
+	class Person
+	{
+	public:
+		Person();
+		Person(const string name, const string phone, const float expenses, const string gName);
+		virtual ~Person();
 
-    const string& getPhoneNumber() const;
-    void setPhoneNumber(const string& phoneNumber);
+		const string& getName() const;
+		void setName(const string& name);
 
-    virtual float getExpenses() const;
-    virtual void setExpenses(const float expenses);
+		const string& getPhoneNumber() const;
+		void setPhoneNumber(const string& phoneNumber);
 
-    float getPayback() const;
-    void setPayback(const float payBack);
+		virtual float getExpenses() const;
+		virtual void setExpenses(const float expenses);
 
-    virtual void operatePayback(const float iExpensesPerPerson);
+		float getPayback() const;
+		void setPayback(const float payBack);
 
-    const string& getType() const;
-    virtual void setType();
+		virtual void operatePayback(const float iExpensesPerPerson);
 
-    /*
-     * Getter & Setter to Group::_groupName
-     * attribute is set through *_pGroup pointer
-     */
-    void setGroupName(const string& name);
-    const string& getGroupName() const;
+		const string& getType() const;
+		virtual void setType();
 
-protected:
-    string _name;
-    string _phoneNumber;
-    float _expenses;
-    float _payback;
-    string _type;
-private:
-    Group *_pGroup;
+		/*
+		 * Getter & Setter to Group::_groupName
+		 * attribute is set through *_pGroup pointer
+		 */
+		void setGroupName(const string& name);
+		const string& getGroupName() const;
 
-};
+	protected:
+		string _name;
+		string _phoneNumber;
+		float _expenses;
+		float _payback;
+		string _type;
+	private:
+		Group *_pGroup;
+
+	};
 
 #endif /* PERSON_HPP_ */

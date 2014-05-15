@@ -10,6 +10,8 @@
 #include <iostream>
 
 using namespace std;
+using namespace model;
+
 Donor::Donor()
 {
 	_donation = 0;
