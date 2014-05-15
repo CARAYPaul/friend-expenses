@@ -14,7 +14,7 @@ using namespace std;
 namespace model
 {
 //Forward declaration
-class Group;
+	class Group;
 	class Person
 	{
 	public:

@@ -1,6 +1,6 @@
-#include "../src/model/Person.hpp"
-#include "../src/model/Group.hpp"
-#include "../src/model/Donor.hpp"
+#include "../../src/model/Person.hpp"
+#include "../../src/model/Group.hpp"
+#include "../../src/model/Donor.hpp"
 #include <iostream>
 #include <fstream>
 #include <sstream>

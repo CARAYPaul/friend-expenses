@@ -7,11 +7,11 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include "../src/model/Person.hpp"
-#include "../src/model/Group.hpp"
-#include "../src/model/Donor.hpp"
-#include "../src/view/Arg.hpp"
-#include "../src/model/Csv.hpp"
+#include "../../src/model/Person.hpp"
+#include "../../src/model/Group.hpp"
+#include "../../src/model/Donor.hpp"
+#include "../../src/view/Arg.hpp"
+
 
 using namespace std;
 using namespace model;
