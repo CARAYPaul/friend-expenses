@@ -9,5 +9,6 @@ You can use severals commands to manage Friend Expenses :
 
 "./friends-expenses --file FileName" is the main function, it's used to calculate and display all the data stored in your file.
 
-"./friends-expenses --name YourName --phone YourPhone --expense YouExpense --group YourGroup --type YourType --file FileName" is used for adding a new row to your CSV file.
+"./friends-expenses --name YourName --phone YourPhone --expense YouExpense --group YourGroup --type YourType --file FileName" is used for adding a new row to your CSV file. 
+It will also run the program (as ./friends-expenses --file FileName does).
 

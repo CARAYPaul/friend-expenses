@@ -7,13 +7,15 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include "../src/Person.hpp"
-#include "../src/Group.hpp"
-#include "../src/Donor.hpp"
-#include "../src/Arg.hpp"
-#include "../src/Csv.hpp"
+#include "../../src/model/Person.hpp"
+#include "../../src/model/Group.hpp"
+#include "../../src/model/Donor.hpp"
+#include "../../src/view/Arg.hpp"
+
 
 using namespace std;
+using namespace model;
+using namespace view;
 
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 int state = 0;

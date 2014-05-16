@@ -8,11 +8,12 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include "../src/Person.hpp"
-#include "../src/Group.hpp"
-#include "../src/Donor.hpp"
+#include "../../src/model/Person.hpp"
+#include "../../src/model/Group.hpp"
+#include "../../src/model/Donor.hpp"
 
 using namespace std;
+using namespace model;
 
 Donor myDonor("Donor1", "0909", 200, "G1");
 

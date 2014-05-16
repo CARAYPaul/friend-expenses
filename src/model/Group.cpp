@@ -8,6 +8,9 @@
 #include "Group.hpp"
 #include "Donor.hpp"
 
+using namespace std;
+using namespace model;
+
 Group::Group()
 {
 	_nbPersGroup = 0;

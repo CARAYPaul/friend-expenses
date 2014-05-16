@@ -7,13 +7,14 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include "../src/Person.hpp"
-#include "../src/Group.hpp"
-#include "../src/Donor.hpp"
-#include "../src/Arg.hpp"
-#include "../src/Csv.hpp"
+#include "../../src/model/Person.hpp"
+#include "../../src/model/Group.hpp"
+#include "../../src/model/Donor.hpp"
+#include "../../src/view/Arg.hpp"
+#include "../../src/model/Csv.hpp"
 
 using namespace std;
+using namespace model;
 
 Csv csv;
 string myFileName;

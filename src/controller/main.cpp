@@ -6,11 +6,11 @@
 // Description : Application to manage friends expenses
 //============================================================================
 
-#include "Person.hpp"
-#include "Group.hpp"
-#include "Donor.hpp"
-#include "Csv.hpp"
-#include "Arg.hpp"
+#include "../model/Person.hpp"
+#include "../model/Group.hpp"
+#include "../model/Donor.hpp"
+#include "../model/Csv.hpp"
+#include "../view/Arg.hpp"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -42,6 +42,8 @@
 
 #define NB_MAX_COLOR 7
 using namespace std;
+using namespace model;
+using namespace view;
 
 int main(int argc, char **argv)
 {

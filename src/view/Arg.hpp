@@ -16,23 +16,27 @@
 #include <limits>
 #include <vector>
 #include <stdlib.h>
-#include "Group.hpp"
-#include "Person.hpp"
-#include "Donor.hpp"
-#include "Csv.hpp"
+#include "../model/Group.hpp"
+#include "../model/Person.hpp"
+#include "../model/Donor.hpp"
+#include "../model/Csv.hpp"
 
 #define COMMA ","
 
-enum STATE {ERROR = 1, WRITE, READ};
-class Arg
+namespace view
 {
 
-public:
-	Arg();
-	virtual ~Arg();
+	enum STATE {ERROR = 1, WRITE, READ};
+	class Arg
+	{
 
-	void readArg(int nbrArg, char **myArg, int *state, string *newdata);
+	public:
+		Arg();
+		virtual ~Arg();
 
-};
+		void readArg(int nbrArg, char **myArg, int *state, string *newdata);
+
+	};
+}
 
 #endif /* ARG_HPP_ */

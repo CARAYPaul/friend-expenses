@@ -10,6 +10,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace model;
 
 Person::Person() :
     _expenses(0),

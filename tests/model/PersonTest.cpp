@@ -7,9 +7,10 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include "../src/Person.hpp"
+#include "../../src/model/Person.hpp"
 
 using namespace std;
+using namespace model;
 
 Person aPerson("Yanis","068071",100,"Person");
 

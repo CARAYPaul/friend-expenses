@@ -7,6 +7,8 @@
 
 #include "Arg.hpp"
 
+using namespace view;
+
 Arg::Arg()
 {
 }

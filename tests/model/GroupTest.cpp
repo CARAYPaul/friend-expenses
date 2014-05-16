@@ -7,11 +7,12 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include "../src/Group.hpp"
-#include "../src/Person.hpp"
-#include "../src/Donor.hpp"
+#include "../../src/model/Group.hpp"
+#include "../../src/model/Person.hpp"
+#include "../../src/model/Donor.hpp"
 
 using namespace std;
+using namespace model;
 
 Group myGroup("G1", 5);
 

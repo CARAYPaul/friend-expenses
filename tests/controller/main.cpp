@@ -1,6 +1,6 @@
-#include "../src/Person.hpp"
-#include "../src/Group.hpp"
-#include "../src/Donor.hpp"
+#include "../../src/model/Person.hpp"
+#include "../../src/model/Group.hpp"
+#include "../../src/model/Donor.hpp"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -10,6 +10,7 @@
 #include <gtest/gtest.h>
 
 using namespace std;
+using namespace model;
 
 // This snippet is used to remove error messages from the console
 // This can be an ofstream as well or any other ostream
