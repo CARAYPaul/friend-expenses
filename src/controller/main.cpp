@@ -108,7 +108,7 @@ int main(int argc, char **argv)
 
     for(vector<Group>::iterator it = Groups.begin(); it != Groups.end(); ++it)
     {
-    	int exp = it->expensesPerPerson();
+    	float exp = it->expensesPerPerson();
     	for (size_t i=0; i < it->size(); ++i)
     	{
     		// operate the payback first
@@ -119,11 +119,11 @@ int main(int argc, char **argv)
     		     << (*it)[i]->getName() << setw(16) << left
     			 << (*it)[i]->getPhoneNumber() << setw(12) << left
     			 << (*it)[i]->getExpenses() << setw(10) << left
-    	         << (*it)[i]->getPayback() << setw(13) << left
+    	         << fixed << setprecision(2) <<(*it)[i]->getPayback() << setw(13) << left
     	         << it->getGroupName() << setw(16) << left
     	         << (*it)[i]->getType()
     	         << RESET
-    	         << endl;
+    	         << endl << fixed << setprecision(0);
     	}
     	if(color_indexer==NB_MAX_COLOR-1)
     		color_indexer=0;
