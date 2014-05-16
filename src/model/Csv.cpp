@@ -153,7 +153,8 @@ using namespace model;
 			{
 				for(size_t j=0; j < it->size(); ++j)
 				{
-					if(i!=j && (*it)[i]->getName() == (*it)[j]->getName() && (*it)[i]->getPhoneNumber() == (*it)[j]->getPhoneNumber() )
+					if(i!=j && (*it)[i]->getName() == (*it)[j]->getName() && (*it)[i]->getPhoneNumber() == (*it)[j]->getPhoneNumber()
+							&& (*it)[i]->getType() == (*it)[j]->getType() )
 					{
 						(*it)[i]->setExpenses((*it)[i]->getExpenses() + (*it)[j]->getExpenses());
 						//we found two persons. Now remove the second one from the vector
